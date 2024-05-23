@@ -34,5 +34,10 @@ export class StepFourComponent {
 
   stepFour(parseCsvData: Partner[]) {
     this.partnersRiver = this.stepsService.stepFour(parseCsvData);
+    console.log(this.partnersRiver)
+    if(this.partnersRiver.length === 0){
+      alert("No hay socios de River")
+      this.router.navigateByUrl("/")
+    }
   }
 }
