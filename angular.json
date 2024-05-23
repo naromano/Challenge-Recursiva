@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "readCsv": {
+    "Challenge-Recursiva": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -35,9 +35,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/@popperjs/core/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -67,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "readCsv:build:production"
+              "buildTarget": "Challenge-Recursiva:build:production"
             },
             "development": {
-              "buildTarget": "readCsv:build:development"
+              "buildTarget": "Challenge-Recursiva:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "readCsv:build"
+            "buildTarget": "Challenge-Recursiva:build"
           }
         },
         "test": {

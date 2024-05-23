@@ -1,0 +1,31 @@
+.father{
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+input[type="file"] {
+    display: none;
+  }
+  
+label img {
+    cursor: pointer;
+    width: 30%;
+    margin: auto;
+    display: flex;
+}
+ 
+.inputFile{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dataExist{
+    margin-top: 20px;
+    border: 5px black;
+}

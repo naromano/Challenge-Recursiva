@@ -1,0 +1,23 @@
+.stepThree{
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    text-align: center;
+    color: #000;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .table{
+    width: 80%;
+    border: 10px;
+  }
+
+  @media (max-width:900px) {
+
+    .table{
+      font-size: 15px;
+    }
+
+}

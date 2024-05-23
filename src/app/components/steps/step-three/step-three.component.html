@@ -1,0 +1,23 @@
+<div class="stepThree">
+    <h1>EJERCICIO 3</h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Socio N°</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Equipo</th>
+            <th scope="col">Edad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let partnerRacing of partnersRacing; let index = index">
+            <th scope="row">{{index + 1}}</th>
+            <td>{{partnerRacing.name.toLocaleUpperCase()}}</td>
+            <td>{{partnerRacing.team.toLocaleUpperCase()}}</td>
+            <td>{{partnerRacing.age}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+  </div>
+

@@ -1,0 +1,25 @@
+<div class="stepFive">
+    <h1>EJERCICIO 5</h1>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Equipo</th>
+            <th scope="col">Cantidad Socios</th>
+            <th scope="col">Promedio Edad</th>
+            <th scope="col">Menor Edad Regis.</th>
+            <th scope="col">Mayor Edad Regis.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let teamStatistic of teamStatistics; let index = index">
+            <th scope="row">{{teamStatistic.team.toLocaleUpperCase()}}</th>
+            <td>{{teamStatistic.amount}}</td>
+            <td>{{teamStatistic.averageAge}}</td>
+            <td>{{teamStatistic.minorAge}}</td>
+            <td>{{teamStatistic.older}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+  </div>
+
