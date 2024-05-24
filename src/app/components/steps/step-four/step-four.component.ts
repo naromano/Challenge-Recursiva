@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { StepsService } from '../../../services/steps.service';
-import { FileService } from '../../../services/file.service';
+import { DataFileService } from '../../../services/dataFile.service';
 import { Partner } from '../../../models/partner';
 import { Router } from '@angular/router';
 
@@ -13,7 +13,7 @@ export class StepFourComponent {
   partnersRiver!: string[];
   constructor(
     private stepsService: StepsService,
-    private dataFile: FileService,
+    private dataFile: DataFileService,
     private router: Router
   ) {}
 
@@ -34,10 +34,10 @@ export class StepFourComponent {
 
   stepFour(parseCsvData: Partner[]) {
     this.partnersRiver = this.stepsService.stepFour(parseCsvData);
-    console.log(this.partnersRiver)
-    if(this.partnersRiver.length === 0){
-      alert("No hay socios de River")
-      this.router.navigateByUrl("/")
+    console.log(this.partnersRiver);
+    if (this.partnersRiver.length === 0) {
+      alert('No hay socios de River');
+      this.router.navigateByUrl('/');
     }
   }
 }

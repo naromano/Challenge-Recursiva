@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StepsService } from '../../../services/steps.service';
-import { FileService } from '../../../services/file.service';
+import { DataFileService } from '../../../services/dataFile.service';
 import { Router } from '@angular/router';
 import { Partner } from '../../../models/partner';
 import { TeamStatistics } from '../../../models/teamStatistics';
@@ -15,7 +15,7 @@ export class StepFiveComponent implements OnInit {
 
   constructor(
     private stepsService: StepsService,
-    private dataFile: FileService,
+    private dataFile: DataFileService,
     private router: Router
   ) {}
 
