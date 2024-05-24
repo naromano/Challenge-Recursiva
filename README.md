@@ -10,11 +10,11 @@ npm install -g @angular/cli
 
 # Clonar e Instalar
 
-Ejecutamos comando git clone https://github.com/naromano/Challenge-Recursiva.git para clonar el repositorio
+Ejecutamos comando git clone 'https://github.com/naromano/Challenge-Recursiva.git' para clonar el repositorio
 
-Ejecutamos comando cd "repositorio"
+Ejecutamos comando cd "ChallengeResursiva"
 
-Ejecutamos comando npm install para instalar las dependencias
+Ejecutamos comando 'npm install' para instalar las dependencias
 
 ## Ejecucion aplicacion web
 

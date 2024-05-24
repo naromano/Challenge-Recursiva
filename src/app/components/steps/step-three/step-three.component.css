@@ -9,7 +9,13 @@
     align-items: center;
   }
 
+  h2{
+    width: 60%;
+    margin-top: 20px;
+  }
+
   .table{
+    margin-top: 20px;
     width: 80%;
     border: 10px;
   }

@@ -34,5 +34,9 @@ export class StepThreeComponent implements OnInit {
 
   stepThree(parseCsvData: Partner[]) {
     this.partnersRacing = this.stepsService.stepThree(parseCsvData);
+    if (this.partnersRacing.length === 0) {
+      alert('No hay socios casados o con estudios universitarios');
+      this.router.navigateByUrl('/');
+    }
   }
 }

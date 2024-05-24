@@ -34,9 +34,13 @@ export class StepTwoComponent implements OnInit {
 
   stepTwo(parseCsvData: Partner[]) {
     this.averageAge = this.stepsService.stepTwo(parseCsvData);
-    if(this.averageAge === "NaN"){
-      alert("No hay socios de Racing")
-      this.router.navigateByUrl("/")
+    if (this.averageAge === 'NaN') {
+      alert('No hay socios de Racing');
+      this.router.navigateByUrl('/');
+    }
+    if (this.averageAge === '0.00') {
+      alert('Los socios de Racing no tienen edad mayor a 0');
+      this.router.navigateByUrl('/');
     }
   }
 }
