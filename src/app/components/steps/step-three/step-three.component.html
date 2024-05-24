@@ -1,25 +1,43 @@
 <div class="stepThree">
-    <h1>EJERCICIO 3</h1>
-    <h2>LAS PRIMERAS {{partnersRacing.length}} CASADAS Y CON ESTUDIOS UNIVERSITARIOS ORDENADOS POR SU EDAD</h2>
+  <h1>EJERCICIO 3</h1>
+  <h2>LAS PRIMERAS {{ partnersRacing.length }} CASADAS Y CON ESTUDIOS UNIVERSITARIOS ORDENADOS POR SU EDAD</h2>
 
-    <table class="table">
-        <thead>
+  <table class="table">
+      <thead>
           <tr>
-            <th scope="col">Socio N°</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Equipo</th>
-            <th scope="col">Edad</th>
+              <th scope="col">Socio N°</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Equipo</th>
+              <th scope="col">Edad</th>
           </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let partnerRacing of partnersRacing; let index = index">
-            <th scope="row">{{index + 1}}</th>
-            <td>{{partnerRacing.name.toLocaleUpperCase()}}</td>
-            <td>{{partnerRacing.team.toLocaleUpperCase()}}</td>
-            <td>{{partnerRacing.age}}</td>
+      </thead>
+      <tbody>
+          <tr *ngFor="let partnerRacing of displayedPartnersRacing; let i = index">
+              <th scope="row">{{ (currentPage - 1) * itemsPerPage + i + 1 }}</th>
+              <td>{{ partnerRacing.name.toLocaleUpperCase() }}</td>
+              <td>{{ partnerRacing.team.toLocaleUpperCase() }}</td>
+              <td>{{ partnerRacing.age }}</td>
           </tr>
-          
-        </tbody>
-      </table>
-  </div>
+      </tbody>
+  </table>
 
+  <!-- Paginación -->
+  <nav aria-label="Page navigation example">
+      <ul class="pagination">
+          <li class="page-item" [class.disabled]="currentPage === 1">
+              <a class="page-link" (click)="onPageChange(currentPage - 1)" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+              </a>
+          </li>
+          <li class="page-item" *ngFor="let page of getPageNumbers()"
+              [class.active]="currentPage === page">
+              <a class="page-link"  (click)="onPageChange(page)">{{ page }}</a>
+          </li>
+          <li class="page-item" [class.disabled]="currentPage === getTotalPages()">
+              <a class="page-link"  (click)="onPageChange(currentPage + 1)" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+              </a>
+          </li>
+      </ul>
+  </nav>
+</div>

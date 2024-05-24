@@ -7,10 +7,14 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-step-three',
   templateUrl: './step-three.component.html',
-  styleUrl: './step-three.component.css',
+  styleUrls: ['./step-three.component.css'],
 })
 export class StepThreeComponent implements OnInit {
   partnersRacing!: any[];
+  displayedPartnersRacing: any[] = [];
+  currentPage = 1;
+  itemsPerPage = 20;
+
   constructor(
     private stepsService: StepsService,
     private dataFile: DataFileService,
@@ -18,10 +22,10 @@ export class StepThreeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.dataRecived();
+    this.dataReceived();
   }
 
-  dataRecived() {
+  dataReceived() {
     this.dataFile.csvData$.subscribe((data) => {
       if (data) {
         this.stepThree(data);
@@ -38,5 +42,34 @@ export class StepThreeComponent implements OnInit {
       alert('No hay socios casados o con estudios universitarios');
       this.router.navigateByUrl('/');
     }
+    this.updateDisplayedPartners();
+  }
+
+  updateDisplayedPartners() {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = Math.min(
+      startIndex + this.itemsPerPage,
+      this.partnersRacing.length
+    );
+    this.displayedPartnersRacing = this.partnersRacing.slice(
+      startIndex,
+      endIndex
+    );
+  }
+
+  onPageChange(pageNumber: number) {
+    this.currentPage = pageNumber;
+    this.updateDisplayedPartners();
+  }
+
+  getTotalPages(): number {
+    return Math.ceil(this.partnersRacing.length / this.itemsPerPage);
+  }
+
+  getPageNumbers(): number[] {
+    const totalPages = this.getTotalPages();
+    return Array(totalPages)
+      .fill(0)
+      .map((x, i) => i + 1);
   }
 }
