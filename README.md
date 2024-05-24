@@ -8,6 +8,8 @@ Asegúrate de tener instalado [Node.js](https://nodejs.org/) en tu sistema. Angu
 
 npm install -g @angular/cli
 
+La version de Angular CLI que tengo en mi computadora es la 17.0.6
+
 ## Clonar e Instalar
 
 Ejecutamos comando git clone 'https://github.com/naromano/Challenge-Recursiva.git' para clonar el repositorio
