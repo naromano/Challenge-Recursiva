@@ -16,16 +16,12 @@ export class DataFileService {
   constructor() {}
 
   handleFileSelect(file: File) {
-    if (file.name.toLowerCase().endsWith('.csv')) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const csv = reader.result as string;
-        this.parseCsv(csv);
-      };
-      reader.readAsText(file);
-    } else {
-      alert('Por favor ingrese un archivo CSV.');
-    }
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const csv = reader.result as string;
+      this.parseCsv(csv);
+    };
+    reader.readAsText(file);
   }
 
   parseCsv(csv: string) {

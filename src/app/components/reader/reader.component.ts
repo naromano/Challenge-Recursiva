@@ -22,8 +22,6 @@ export class ReaderComponent {
     if (file) {
       this.dataFile.handleFileSelect(file);
       alert('Archivo cargado, elija el ejercicio que quiera realizar');
-    } else {
-      alert('Suba un archivo .csv');
     }
   }
 }

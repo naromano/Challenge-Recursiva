@@ -5,7 +5,7 @@
   <label for="file-input">
     <img src="../../../assets/boton+.png" alt="Seleccionar Archivo">
   </label>
-  <input id="file-input" type="file" (change)="onFileSelected($event)">
+  <input accept=".csv" id="file-input" type="file" (change)="onFileSelected($event)">
   <h3>Subir archivo .csv</h3>
 
   <button (click)="sendFile(file)" type="button" class="btn btn-primary">Enviar</button>
