@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StepsService } from '../../../services/steps.service';
-import { FileService } from '../../../services/file.service';
+import { DataFileService } from '../../../services/dataFile.service';
 import { Partner } from '../../../models/partner';
 import { Router } from '@angular/router';
 
@@ -13,7 +13,7 @@ export class StepTwoComponent implements OnInit {
   averageAge!: string;
   constructor(
     private stepsService: StepsService,
-    private dataFile: FileService,
+    private dataFile: DataFileService,
     private router: Router
   ) {}
 

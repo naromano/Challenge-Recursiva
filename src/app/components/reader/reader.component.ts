@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import * as Papa from 'papaparse';
-import { FileService } from '../../services/file.service';
+import { DataFileService } from '../../services/dataFile.service';
 
 @Component({
   selector: 'app-reader',
@@ -12,46 +11,16 @@ export class ReaderComponent {
   parseCsvData: any[] = [];
   dataExist = false;
 
-  constructor(private dataFile: FileService) {}
+  constructor(private dataFile: DataFileService) {
+    this.dataFile.dataFile.subscribe((data) => {
+      this.dataExist = true;
+    });
+  }
 
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
-
     if (file) {
-      if (file.name.toLowerCase().endsWith('.csv')) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          const csv = reader.result as string;
-          Papa.parse(csv, {
-            header: false,
-            delimiter: '\n',
-            complete: (result) => {
-              this.csvData = result.data;
-              this.parseCsvData = this.csvData
-                .map((item) => item[0])
-                .filter((line) => line)
-                .map((line) => {
-                  const [name, age, team, civilStatus, levelStudy] =
-                    line.split(';');
-                  return {
-                    name: name.toLowerCase(),
-                    age: Number(age),
-                    team: team.toLowerCase(),
-                    civilStatus: civilStatus.toLowerCase(),
-                    levelStudy: levelStudy.toLowerCase(),
-                  };
-                });
-
-              this.dataFile.emitCsvData(this.parseCsvData);
-              this.dataExist = true;
-            },
-          });
-        };
-        reader.readAsText(file);
-      } else {
-        alert('Por favor ingrese un archivo CSV.');
-        event.target.value = null;
-      }
+      this.dataFile.handleFileSelect(file);
     }
   }
 }
