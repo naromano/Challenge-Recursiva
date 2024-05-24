@@ -6,10 +6,10 @@
     <img src="../../../assets/boton+.png" alt="Seleccionar Archivo">
   </label>
   <input id="file-input" type="file" (change)="onFileSelected($event)">
-  <h3>Subir archivo</h3>
-</div>
+  <h3>Subir archivo .csv</h3>
 
-<h3 class="dataExist" *ngIf="dataExist">SELECCIONE EL EJERCICIO QUE QUIERE RESOLVER</h3>
+  <button (click)="sendFile(file)" type="button" class="btn btn-primary">Enviar</button>
+</div>
 </div>
 
 

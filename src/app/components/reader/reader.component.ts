@@ -7,20 +7,23 @@ import { DataFileService } from '../../services/dataFile.service';
   styleUrls: ['./reader.component.css'],
 })
 export class ReaderComponent {
+  file!: File;
   csvData: any[] = [];
   parseCsvData: any[] = [];
   dataExist = false;
 
-  constructor(private dataFile: DataFileService) {
-    this.dataFile.dataFile.subscribe((data) => {
-      this.dataExist = true;
-    });
-  }
+  constructor(private dataFile: DataFileService) {}
 
   onFileSelected(event: any) {
-    const file: File = event.target.files[0];
+    this.file = event.target.files[0];
+  }
+
+  sendFile(file: File) {
     if (file) {
       this.dataFile.handleFileSelect(file);
+      alert('Archivo cargado, elija el ejercicio que quiera realizar');
+    } else {
+      alert('Suba un archivo .csv');
     }
   }
 }
